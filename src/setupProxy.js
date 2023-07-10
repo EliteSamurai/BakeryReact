@@ -6,7 +6,7 @@ module.exports = function (app) {
         : 'https://ummyahyasbakery.com';
 
   app.use(
-    '/netlify/functions/',
+    '/.netlify/functions/',
     createProxyMiddleware({
       target,
       changeOrigin: true,
