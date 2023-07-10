@@ -6,7 +6,6 @@ const calculateOrderAmount = (items) => {
 };
 
 exports.handler = async (event) => {
-
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
