@@ -11,7 +11,7 @@ export default function Checkout({ selectedProduct }) {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("/netlify/functions/createPaymentIntent", {
+    fetch("/.netlify/functions/createPaymentIntent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: selectedProduct }),

@@ -1,4 +1,4 @@
-const stripe = require('stripe')('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');
+const stripe = require('stripe')(process.env.REACT_APP_KEY);
 
 const calculateOrderAmount = (items) => {
   const totalSum = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -6,7 +6,6 @@ const calculateOrderAmount = (items) => {
 };
 
 exports.handler = async (event) => {
-  console.log(process.env.REACT_APP_KEY)
 
   if (event.httpMethod !== 'POST') {
     return {
