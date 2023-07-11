@@ -1,8 +1,10 @@
 const fs = require('fs');
+const path = require('path');
 
 exports.handler = async (event) => {
   try {
-    const completionHtml = fs.readFileSync('src/stripe/completion.html', 'utf8');
+    const completionHtmlPath = path.join(__dirname, '../../src/stripe/completion.html');
+    const completionHtml = fs.readFileSync(completionHtmlPath, 'utf8');
 
     return {
       statusCode: 200,
@@ -16,3 +18,4 @@ exports.handler = async (event) => {
     };
   }
 };
+
