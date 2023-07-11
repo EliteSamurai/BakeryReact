@@ -17,7 +17,6 @@ export default function Checkout({ selectedProduct }) {
       body: JSON.stringify({ items: selectedProduct }),
     })
       .then((res) => {
-        console.log(res)
         if (res.ok) return res.json();
         throw new Error("Status code error: " + res.status);
       })

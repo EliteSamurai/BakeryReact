@@ -60,11 +60,10 @@ export default function CheckoutForm({selectedProduct}) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `https://ummyahyasbakery.com/completion.html`,
+        return_url: `${window.location.origin}/.netlify/functions/completion`,
         receipt_email: email,
       },
     });
-
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
     // your `return_url`. For some payment methods like iDEAL, your customer will

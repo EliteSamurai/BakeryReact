@@ -1,6 +1,5 @@
-#root2 {
-    display: flex;
-    align-items: center;
+  body{
+    width: 100%;
   }
   
   .App {
@@ -10,13 +9,13 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 100vh;
+    height: auto;
     width: 100%;
     margin: 1rem 0;
   }
   
   form {
-    width: 30vw;
+    width: auto;
     min-width: 500px;
     align-self: center;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),

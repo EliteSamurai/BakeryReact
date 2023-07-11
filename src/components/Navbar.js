@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../images/Eagan Bakery Shop Logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,15 +18,6 @@ const toggleNav = () => {
   setIsNavOpen(!isNavOpen);
 };
 
-useEffect(() => {
-  if (isNavOpen) {
-    document.body.style.overflow = "hidden";
-  }
-  
-  return () => {
-    document.body.style.overflow = "visible";
-  };
-}, [isNavOpen]);
 
 const closeNav = () => {
   setIsNavOpen(false);
