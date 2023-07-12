@@ -3,7 +3,7 @@ const path = require('path');
 
 exports.handler = async (event) => {
   try {
-    const completionHtmlPath = path.join(__dirname, '../../src/stripe/completion.html');
+    const completionHtmlPath = path.join(process.cwd(), 'src/stripe/completion.html');
     const completionHtml = fs.readFileSync(completionHtmlPath, 'utf8');
 
     return {
@@ -18,4 +18,5 @@ exports.handler = async (event) => {
     };
   }
 };
+
 
