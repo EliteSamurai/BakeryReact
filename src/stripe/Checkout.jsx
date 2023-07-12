@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import "./Checkout.css";
 
-const stripePromise = loadStripe("pk_live_51NJc2cDUPQKJ61tf4wi8rfgy0lYITta0zjRgcG56fWc1EFga3f6kkgwn7ZFFzKZa9InrrxC5rTCii3PBT6I3TDsS00P4gGtfya");
+const stripePromise = loadStripe("pk_test_51NJc2cDUPQKJ61tfTg9qnezcJIORG7NkTHeHn88Hboxh9m9VdSPi1wr7mPaOZx2xhAGe6j1mT7P9bcdbbIiMoXn500LR6q8wEH");
 
 export default function Checkout({ selectedProduct }) {
   const [clientSecret, setClientSecret] = useState("");
