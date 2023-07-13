@@ -1,8 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 
 exports.handler = (event, context, callback) => {
-  const completionHtmlPath = './src/stripe/completion.html';
-
+  const completionHtmlPath = path.resolve(__dirname, '../../src/stripe/completion.html');
+  
   fs.readFile(completionHtmlPath, 'utf8', (err, data) => {
     if (err) {
       callback(null, {
