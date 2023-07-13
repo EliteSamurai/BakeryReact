@@ -1,20 +1,22 @@
 const fs = require('fs');
-const path = require('path');
 
-exports.handler = async (event) => {
-  try {
-    const completionHtmlPath = path.resolve(__dirname, '../../src/stripe/completion.html');
-    const completionHtml = fs.readFileSync(completionHtmlPath, 'utf8');
+exports.handler = (event, context, callback) => {
+  const completionHtmlPath = './src/stripe/completion.html';
 
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'text/html' },
-      body: completionHtml,
-    };
-  } catch (error) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
-    };
-  }
+  fs.readFile(completionHtmlPath, 'utf8', (err, data) => {
+    if (err) {
+      callback(null, {
+        statusCode: 500,
+        body: JSON.stringify({ error: err.message }),
+      });
+    } else {
+      callback(null, {
+        statusCode: 200,
+        headers: { 'Content-Type': 'text/html' },
+        body: data,
+      });
+    }
+  });
 };
+
+

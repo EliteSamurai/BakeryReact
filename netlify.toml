@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/completion.html"
+  to = "/.netlify/functions/completion"
+  status = 200
