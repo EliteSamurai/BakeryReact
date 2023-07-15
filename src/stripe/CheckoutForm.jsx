@@ -60,7 +60,7 @@ export default function CheckoutForm({selectedProduct}) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/.netlify/functions/completion`,
+        return_url: `${window.location.origin}/completion`,
         receipt_email: email,
       },
     });

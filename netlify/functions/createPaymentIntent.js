@@ -14,12 +14,18 @@ exports.handler = async (event) => {
   }
 
   try {
-    const { items } = JSON.parse(event.body);
-    
-    // Create a PaymentIntent with the order amount and currency
+    const { items, email } = JSON.parse(event.body);
+
+    // Create a customer
+    const customer = await stripe.customers.create({
+      email: email,
+    });
+
+    // Create a PaymentIntent with the order amount, currency, and customer ID
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(items),
       currency: 'usd',
+      customer: customer.id,
       automatic_payment_methods: {
         enabled: true,
       },
