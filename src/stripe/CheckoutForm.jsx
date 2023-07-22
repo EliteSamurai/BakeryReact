@@ -87,10 +87,6 @@ export default function CheckoutForm({selectedProduct}) {
     return (totalSum / 100).toFixed(2);
   };
 
-  useEffect(() => {
-    console.log(email, selectedProductNames)
-  }, [email])
-
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
