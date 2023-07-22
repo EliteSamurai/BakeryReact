@@ -13,7 +13,6 @@ export default function CheckoutForm({selectedProduct}) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const selectedProductNames = selectedProduct.map((item) => item.bottomName);
 
   useEffect(() => {
     if (!stripe) {
