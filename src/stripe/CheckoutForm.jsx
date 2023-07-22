@@ -13,6 +13,7 @@ export default function CheckoutForm({selectedProduct}) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const selectedProductNames = selectedProduct.map((item) => item.bottomName);
 
   useEffect(() => {
     if (!stripe) {
@@ -50,7 +51,6 @@ export default function CheckoutForm({selectedProduct}) {
 
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -59,11 +59,11 @@ export default function CheckoutForm({selectedProduct}) {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/completion`,
         receipt_email: email,
       },
-    });
+      },
+  );
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
     // your `return_url`. For some payment methods like iDEAL, your customer will
@@ -87,11 +87,15 @@ export default function CheckoutForm({selectedProduct}) {
     return (totalSum / 100).toFixed(2);
   };
 
+  useEffect(() => {
+    console.log(email, selectedProductNames)
+  }, [email])
+
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
        id="link-authentication-element"
-       onChange={(event) => setEmail(event.target && event.target.value)}
+       onChange={(event) => setEmail(event.value.email)}
        />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
