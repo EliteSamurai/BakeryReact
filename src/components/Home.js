@@ -14,8 +14,8 @@ export default function Home(){
         <img className='cookie-hero' src={EaganMilkshake} alt="milkshake and cake pops"/>
         <div className="hero-text">
         <h1>Minnesota's Finest Freshly Baked Goodness</h1>
-        <h4>*Hurry, Limited Quantities Available!</h4>
-        <h4>Weekly Orders - Friday Pickup</h4>
+        <h4>Hurry, Limited Quantities Available!</h4>
+        <h4>*Order by 4:30pm for same day pickup*</h4>
         <Link to="/Order"><button>ORDER NOW</button></Link>
         </div>
        </main>
